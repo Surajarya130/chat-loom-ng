@@ -1,0 +1,49 @@
+<div class="logos">
+  <img src="../../assets/finLogo.svg" alt="finLogo" />
+
+  <h1>Finanshels Education Page</h1>
+  <p>
+    We’ve trained a model called ChatGPT which interacts in a conversational
+    way. The dialogue format makes it possible for ChatGPT
+  </p>
+</div>
+
+<div class="mainContainer">
+  <div class="somethingAboutText">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+      corporis, numquam est quam odit aut cumque explicabo aspernatur laudantium
+      amet dolorum culpa blanditiis ad accusantium facilis eos, ullam doloribus
+      dolor!
+    </p>
+  </div>
+  <div class="mainPageContainer">
+    <div class="resultBox" *ngFor="let facts of qna">
+      <div class="usersQuestion">
+        <div class="userQueryText" *ngIf="facts.a !== undefined">
+          <p>{{ facts.a }}</p>
+        </div>
+      </div>
+
+      <div class="userQueryText">
+        <div class="botsResult">
+          <p>{{ facts.q }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="queryBox">
+      <input
+        type="text"
+        class="query"
+        placeholder="Your quesiton here..."
+        #box
+        (keyup)="getValue(box.value)"
+      />
+      <img
+        (click)="handleSendClick(box.value)"
+        src="../../assets/sendIcon.png"
+        alt="sendIcon"
+      />
+    </div>
+  </div>
+</div>
